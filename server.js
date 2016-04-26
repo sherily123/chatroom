@@ -5,6 +5,7 @@ var express = require('express'),
 	io = require('socket.io')(server),
 	port = process.env.PORT || 3000;
 
+/*
 // 连接本地数据库MongoDB，并且设置两张表头，方便插入数据
 var mongoose = require('mongoose'),
 	db = mongoose.createConnection('localhost', 'chatroom');
@@ -27,7 +28,7 @@ var conModel = db.model('conversation', conSchema);
 // 连接失败时显示错误
 db.on('error', (err) => {
 	console.error(err);
-});
+});*/
 
 // 监听聊天室端口
 server.listen(port, function () {
@@ -46,13 +47,36 @@ app.get('/', (req, res) => {
 /* 监听Websocket内容 */
 
 var numUsers = 0,
-	userList = {};
+	userList = {},
+	anonymous = [];
 
 io.on('connection', (socket) => {
 	var addedUser = false;
 
 	// 新建立一个客户端链接
 	console.log('a user connected.');
+
+	// 用户上线
+	/*socket.on('login', (data) => {
+		if (anonymous.indexOf(data.username) > -1) {
+			socket.emit('error', {
+				type: 'login',
+				msg: 'Username existed'
+			});
+		} else {
+			socket.userIndex = anonymous.length;
+			socket.username = data.username;
+			anonymous.push(data.username);
+			socket.emit('welcome', {
+				numUsers: anonymous.length;
+				userList: anonymous,
+				msg: 'Welcome to Chatroom! '
+			});
+			io.sockets.emit('system', {
+				username: data.username;
+			});
+		}
+	})*/
 
   	// 用户登录
   	// 检查是否存在该用户: 存在   -> 返回welcome信息
@@ -71,7 +95,7 @@ io.on('connection', (socket) => {
 	  	socket.broadcast.emit('new user', {
 			userList: userList,
 		  	msg: 'A new user joins'
-	  	});
+	  	});*
 		/*userModel.findOne({
 			email: data.email,
 			password: data.password
