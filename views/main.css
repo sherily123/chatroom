@@ -3,11 +3,9 @@
 	box-sizing: border-box;
 }
 
-html, body {
+body {
 	background: #e6e6e6;
 	position: relative;
-	padding: 0;
-	margin: 0;
 }
 
 .hidden {
@@ -25,7 +23,7 @@ html, body {
 }
 
 .nick-wrapper {
-
+	
 }
 
 /* old version */

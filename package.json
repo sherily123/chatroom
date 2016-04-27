@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "express": "4.13.x",
-    "socket.io": "*"
+    "socket.io": "*",
   },
   "private": true
 }

@@ -3,33 +3,43 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Chatroom</title>
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="main.css">
 	</head>
 	<body>
-		<div class="chatting">
+		<!-- 聊天页面 -->
+		<div class="panel-chatroom">
+			<!-- 用户列表 -->
 			<div class="user-online">
-				<div class="userbar">
-					<div class="user-label">在线用户 <span class="user-num">0</span></div>
-					<div class="user-list">
-						<ul class="list"></ul>
-					</div>
+				<div class="user-label">在线用户 <span class="user-num">0</span></div>
+				<div class="user-list">
+					<ul class="list"></ul>
 				</div>
 			</div>
-			<div class="content">
-				<div class="content-show">
+			<!-- 聊天部分 -->
+			<div class="chatting">
+				<!-- 历史内容 -->
+				<div class="chatting-show">
 					<ul class="contents"></ul>
 				</div>
-				<div class="content-saying">
-					<div class="toolbar"></div>
-					<form action="" class="input-field">
-						<input class="input-content" autocomplete="off">
-						<button class="input-btn">发送</button>
-					</form>
+				<!-- 输入框 -->
+				<div class="chatting-saying">
+					<textarea class="input-message" rows="8" cols="40" placeholder="输入信息"></textarea>
+					<div class="toolbar">
+						<input class="emoji" type="button" value="emoji" title="emoji" />
+						<label class="imageLabel" for="sendImage">
+							<input type="button" value="image" title="image" />
+							<input type="file" value="image" />
+						</label>
+						<input class="clear-btn" type="button" value="clear" title="clear screen">
+					</div>
+					<input class="send-btn" type="button" value="发送">
+					<div class="emoji-wrapper"></div>
 				</div>
 			</div>
 		</div>
 
-		<div class="user-info">
+		<!-- 登陆注册页面 -->
+		<div class="panel-entry hidden">
 			<div class="trigger-tab">
 				<ul>
 					<li class="chosen" data-id="login">登录</li>
@@ -52,6 +62,16 @@
 					<input type="submit" name="submit" value="注册" class="register-btn">
 					<button class="reset-btn">重置</button>
 				</form>
+			</div>
+		</div>
+
+		<!-- 连接服务器提示页面 -->
+		<div class="panel-connecting">
+			<p class="nick-wrapper">连接服务器中...</p>
+			<!--之后要删除这个登陆-->
+			<div class="nick-wrapper hidden">
+				<input class="nickname-input" type="text" placeholder="nickename" />
+				<input class="login-btn" type="button" value="OK" />
 			</div>
 		</div>
 
