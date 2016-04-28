@@ -5,73 +5,64 @@
 		<title>Chatroom</title>
 		<link rel="stylesheet" href="main.css">
 	</head>
-	<body>
-		<!-- 聊天页面 -->
-		<div class="panel-chatroom">
-			<!-- 用户列表 -->
-			<div class="user-online">
-				<div class="user-label">在线用户 <span class="user-num">0</span></div>
-				<div class="user-list">
-					<ul class="list"></ul>
-				</div>
+	<body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+		<!-- 用户列表 -->
+		<div class="user-online">
+			<div class="user-label">在线用户 <span class="user-num">0</span></div>
+			<div class="user-list">
+				<ul class="list"></ul>
 			</div>
-			<!-- 聊天部分 -->
-			<div class="chatting">
-				<!-- 历史内容 -->
-				<div class="chatting-show">
-					<ul class="contents"></ul>
+		</div>
+		<!-- 对话列表 -->
+		<div class="chatting">
+			<!-- 历史内容 -->
+			<div class="chatting-show">
+				<ul class="contents"></ul>
+			</div>
+			<!-- 输入框 -->
+			<div class="chatting-saying">
+				<textarea class="input-message" rows="8" cols="40" placeholder="输入信息"></textarea>
+				<div class="toolbar">
+					<input class="emoji" type="button" value="emoji" title="emoji" />
+					<label class="imageLabel" for="sendImage">
+						<input type="button" value="image" title="image" />
+						<input type="file" value="image" />
+					</label>
+					<input class="clear-btn" type="button" value="clear" title="clear screen">
 				</div>
-				<!-- 输入框 -->
-				<div class="chatting-saying">
-					<textarea class="input-message" rows="8" cols="40" placeholder="输入信息"></textarea>
-					<div class="toolbar">
-						<input class="emoji" type="button" value="emoji" title="emoji" />
-						<label class="imageLabel" for="sendImage">
-							<input type="button" value="image" title="image" />
-							<input type="file" value="image" />
-						</label>
-						<input class="clear-btn" type="button" value="clear" title="clear screen">
-					</div>
-					<input class="send-btn" type="button" value="发送">
-					<div class="emoji-wrapper"></div>
-				</div>
+				<input class="send-btn" type="button" value="发送">
+				<div class="emoji-wrapper"></div>
 			</div>
 		</div>
 
-		<!-- 登陆注册页面 -->
-		<div class="panel-entry hidden">
-			<div class="trigger-tab">
-				<ul>
-					<li class="chosen" data-id="login">登录</li>
-					<li data-id="register">注册</li>
+		<!-- 入口页面 -->
+		<div class="panel-connecting hidden">
+			<!-- 连接服务器提示页面 -->
+			<p class="hidden connect-wrapper">连接服务器中...</p>
+
+			<!-- 登陆注册页面 -->
+			<div class="entry-wrapper">
+				<ul class="trigger-tab">
+					<a class="trigger" href="javascript:void(0)"><li class="chosen" data-id="login">登录</li></a>
+					<a class="trigger" href="javascript:void(0)"><li data-id="register">注册</li></a>
 				</ul>
-			</div>
-			<div class="login">
-				<form class="login-form" action="">
-					<label>邮箱：<input type="email" name="email" class="login-email"></label>
-					<label>密码：<input type="password" name="password" class="login-pwd"></label>
-					<input type="submit" name="submit" value="登录" class="login-btn">
-				</form>
-			</div>
-			<div class="signin">
-				<form class="signin-form" action="">
-					<label>邮箱：<input type="email" name="email" class="reg-email"></label>
-					<label>昵称：<input type="text" name="nickname" class="reg-name"></label>
-					<label>密码：<input type="password" name="pwd1" class="reg-pwd1"></label>
-					<label>确定密码：<input type="password" name="pwd2" class="reg-pwd2"></label>
-					<input type="submit" name="submit" value="注册" class="register-btn">
-					<button class="reset-btn">重置</button>
-				</form>
-			</div>
-		</div>
-
-		<!-- 连接服务器提示页面 -->
-		<div class="panel-connecting">
-			<p class="nick-wrapper">连接服务器中...</p>
-			<!--之后要删除这个登陆-->
-			<div class="nick-wrapper hidden">
-				<input class="nickname-input" type="text" placeholder="nickename" />
-				<input class="login-btn" type="button" value="OK" />
+				<div class="login">
+					<form class="login-form" action="">
+						<label>邮箱 <input type="email" name="email" class="login-email"></label>
+						<label>密码 <input type="password" name="password" class="login-pwd"></label>
+						<input type="submit" name="submit" value="登录" class="login-btn">
+					</form>
+				</div>
+				<div class="register hidden">
+					<form class="register-form" action="">
+						<label>邮箱 <input type="email" name="email" class="reg-email"></label>
+						<label>昵称 <input type="text" name="nickname" class="reg-name"></label>
+						<label>密码 <input type="password" name="pwd1" class="reg-pwd1"></label>
+						<label>确认 <input type="password" name="pwd2" class="reg-pwd2"></label>
+						<input type="submit" name="submit" value="注册" class="register-btn">
+						<button class="reset-btn">重置</button>
+					</form>
+				</div>
 			</div>
 		</div>
 

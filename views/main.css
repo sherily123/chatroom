@@ -1,17 +1,14 @@
-/* general css */
-* {
-	box-sizing: border-box;
-}
-
+/* general */
 body {
 	background: #e6e6e6;
 	position: relative;
+	min-height: 100vh;
 }
-
 .hidden {
 	display: none;
 }
 
+/* page parts */
 .panel-connecting {
 	position: absolute;
 	top: 0;
@@ -21,9 +18,54 @@ body {
 	background: rgba(0, 0, 0, 0.8);
 	text-align: center;
 }
+.connect-wrapper,
+.entry-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	color: #ffffff;
+	margin: 0;
+}
+.entry-wrapper {
+	height: 350px;
+	width: 250px;
+}
+.trigger-tab {
+	display: block;
+	padding: 0;
+}
+.trigger-tab li {
+	display: inline-block;
+	list-style: none;
+	text-align: center;
+	width: 40%;
+}
+.trigger {
+	color: #fff;
+}
+.trigger:hover {
+	color: #ccc;
+}
+label {
+	display: block;
+}
+.login-form input,
+.register-form input {
+	margin: 10px;
+}
 
-.nick-wrapper {
-	
+.user-online,
+.chatting {
+	display: inline-block;
+}
+.user-online {
+	height: 100vh;
+	width: 30%;
+	border: 1px solid #ccc;
+}
+.chatting {
+	width: 65%;
 }
 
 /* old version */
