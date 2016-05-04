@@ -1,19 +1,14 @@
-/* general css */
-* {
-	box-sizing: border-box;
-}
-
-html, body {
+/* general */
+body {
 	background: #e6e6e6;
 	position: relative;
-	padding: 0;
-	margin: 0;
+	min-height: 100vh;
 }
-
 .hidden {
 	display: none;
 }
 
+/* connecting panel */
 .panel-connecting {
 	position: absolute;
 	top: 0;
@@ -23,85 +18,97 @@ html, body {
 	background: rgba(0, 0, 0, 0.8);
 	text-align: center;
 }
-
-.nick-wrapper {
-
-}
-
-/* old version */
-
-/*.user-online {
-	width: 200px;
-	min-width: 200px;
-	min-height: 100vh;
-	float: left;
-	padding: 4px 6px;
-	border: 1px solid #949494;
-}
-
-.content {
-	min-height: 100vh;
-	margin-left: 220px;
-	padding: 4px 6px;
-	border: 1px solid #949494;
-	position: relative;
-}
-
-.content-show {
-	min-height: calc(100vh - 78px);
-	background: #f5f5f5;
-}
-
-.content-saying {
-	margin: 0;
+.connect-wrapper,
+.entry-wrapper {
 	position: absolute;
-	bottom: 5px;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	color: #ffffff;
+	margin: 0;
 }
-
-.input-field {
-	width: 100%;
+.entry-wrapper {
+	height: 350px;
+	width: 250px;
 }
-
-.input-content {
-	min-height: 60px;
+.trigger-tab {
+	display: block;
 	padding: 0;
-	width: 90%;
+}
+.trigger-tab li {
+	display: inline-block;
+	list-style: none;
+	text-align: center;
+	width: 40%;
+}
+.trigger-tab a {
+	text-decoration: none;
+}
+.trigger {
+	color: #fff;
+}
+.trigger:hover {
+	color: #ccc;
+}
+label {
+	display: block;
+}
+.login-form input,
+.register-form input {
+	margin: 10px;
 }
 
-.input-btn {
-	height: 60px;
-	min-height: 60px;
-	width: 8%;
+/* chatting panel */
+.panel-chat {
+	width: 80vw;
+	margin: auto;
 }
-
-.trigger-tab ul li {
+.user-online,
+.chatting {
 	display: inline-block;
 }
-
-.trigger-tab ul li:nth-child(2n) {
-	background: none;
+.user-online {
+	height: 100vh;
+	border: 1px solid #ccc;
+	float: left;
+	width: 24%;
 }
-
-.trigger-tab .chosen {
+.chatting {
+	width: 75%;
+}
+.chatting-show {
+	height: 80vh;
+	border: 1px solid #ccc;
 	background: #fff;
+	overflow: scroll;
 }
-
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 15px 0;
+.contents {
+	overflow: scroll;
 }
-
-ul li {
-	line-height: 20px;
-	height: 20px;
-	padding: 0 30px;
+.system {
+	color: #a70000;
 }
-
-ul li:nth-child(2n) {
-	background: #eceaea;
+.timespan {
+	color: #94B9DC;
 }
-
-.hidden {
-	display: none;
-}*/
+.chatting-show img {
+	max-width: 50%;
+	max-height: 50%;
+}
+.chatting-saying {
+	height: 20vh;
+}
+.toolbar *,
+.inputing * {
+	display: inline-block;
+}
+.inputing .input-message {
+	height: 15vh;
+	width: 78%;
+	vertical-align: middle;
+}
+.inputing .send-btn {
+	height: 15vh;
+	width: 20%;
+	vertical-align: middle;
+}

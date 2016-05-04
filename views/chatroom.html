@@ -3,59 +3,63 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Chatroom</title>
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
-		<!-- 用户列表 -->
-		<div class="user-online">
-			<div class="user-label">在线用户 <span class="user-num">0</span></div>
-			<div class="user-list">
-				<ul class="list"></ul>
-			</div>
-		</div>
-		<!-- 对话列表 -->
-		<div class="chatting">
-			<!-- 历史内容 -->
-			<div class="chatting-show">
-				<ul class="contents"></ul>
-			</div>
-			<!-- 输入框 -->
-			<div class="chatting-saying">
-				<textarea class="input-message" rows="8" cols="40" placeholder="输入信息"></textarea>
-				<div class="toolbar">
-					<input class="emoji" type="button" value="emoji" title="emoji" />
-					<label class="imageLabel" for="sendImage">
-						<input type="button" value="image" title="image" />
-						<input type="file" value="image" />
-					</label>
-					<input class="clear-btn" type="button" value="clear" title="clear screen">
+		<div class="panel-chat">
+			<!-- 用户列表 -->
+			<div class="user-online">
+				<div class="user-label">在线用户 <span class="js-user-num">0</span></div>
+				<div class="user-list">
+					<ul class="js-list"></ul>
 				</div>
-				<input class="send-btn" type="button" value="发送">
-				<div class="emoji-wrapper"></div>
+			</div>
+			<!-- 对话列表 -->
+			<div class="chatting">
+				<!-- 历史内容 -->
+				<div class="chatting-show">
+					<ul class="js-contents contents"></ul>
+				</div>
+				<!-- 输入框 -->
+				<div class="chatting-saying">
+					<div class="toolbar">
+						<input class="js-emoji emoji" type="button" value="emoji" title="emoji" />
+						<label class="imageLabel" for="sendImage">
+							<input class="js-image-input" type="file" value="image" />
+						</label>
+						<input class="clear-btn" type="button" value="clear" title="clear screen">
+					</div>
+					<div class="inputing">
+						<textarea class="js-input-message input-message" rows="4" cols="40" placeholder="输入信息"></textarea>
+						<input class="js-send-btn send-btn" type="button" value="发送">
+					</div>
+					<div class="hidden js-emoji-wrapper emoji-wrapper"></div>
+				</div>
 			</div>
 		</div>
 
 		<!-- 入口页面 -->
-		<div class="panel-connecting hidden">
+		<div class="js-panel-connecting panel-connecting">
 			<!-- 连接服务器提示页面 -->
-			<p class="hidden connect-wrapper">连接服务器中...</p>
+			<p class="js-connect-wrapper connect-wrapper">连接服务器中...</p>
 
 			<!-- 登陆注册页面 -->
-			<div class="entry-wrapper">
-				<ul class="trigger-tab">
-					<a class="trigger" href="javascript:void(0)"><li class="chosen" data-id="login">登录</li></a>
-					<a class="trigger" href="javascript:void(0)"><li data-id="register">注册</li></a>
+			<div class="hidden js-entry-wrapper entry-wrapper">
+				<ul class="js-trigger-tab trigger-tab">
+					<li class="chosen"><a class="js-trigger trigger" href="javascript:void(0)" data-action="login">登录</a></li>
+					<li><a class="js-trigger trigger" href="javascript:void(0)" data-action="register">注册</a></li>
 				</ul>
-				<div class="login">
+				<div class="js-login login">
 					<form class="login-form" action="">
-						<label>邮箱 <input type="email" name="email" class="login-email"></label>
+						<label>邮箱 <input type="text" name="email" class="js-login-email"></label>
 						<label>密码 <input type="password" name="password" class="login-pwd"></label>
-						<input type="submit" name="submit" value="登录" class="login-btn">
+						<input type="submit" name="submit" value="登录" class="js-login-btn">
+						<button type="button" name="button" class="temp">进入下一步</button>
 					</form>
 				</div>
-				<div class="register hidden">
+				<div class="js-register register hidden">
 					<form class="register-form" action="">
-						<label>邮箱 <input type="email" name="email" class="reg-email"></label>
+						<label>邮箱 <input type="text" name="email" class="js-reg-email"></label>
 						<label>昵称 <input type="text" name="nickname" class="reg-name"></label>
 						<label>密码 <input type="password" name="pwd1" class="reg-pwd1"></label>
 						<label>确认 <input type="password" name="pwd2" class="reg-pwd2"></label>

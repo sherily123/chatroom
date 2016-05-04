@@ -8,7 +8,7 @@ body {
 	display: none;
 }
 
-/* page parts */
+/* connecting panel */
 .panel-connecting {
 	position: absolute;
 	top: 0;
@@ -55,18 +55,49 @@ label {
 	margin: 10px;
 }
 
+/* chatting panel */
+.panel-chat {
+	width: 80vw;
+	margin: auto;
+}
 .user-online,
 .chatting {
 	display: inline-block;
 }
 .user-online {
 	height: 100vh;
-	width: 30%;
 	border: 1px solid #ccc;
+	float: left;
+	width: 24%;
 }
 .chatting {
-	width: 65%;
+	width: 75%;
 }
+.chatting-show {
+	height: 80vh;
+	border: 1px solid #ccc;
+	background: #fff;
+}
+.chatting-saying {
+	height: 20vh;
+}
+.toolbar *,
+.inputing * {
+	display: inline-block;
+}
+.inputing {
+	.input-message {
+		height: 15vh;
+		width: 78%;
+		vertical-align: middle;
+	}
+}
+.inputing .send-btn {
+	height: 15vh;
+	width: 20%;
+	vertical-align: middle;
+}
+
 
 /* old version */
 
