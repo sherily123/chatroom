@@ -2,7 +2,8 @@
 var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
-    io = require('socket.io')(server);
+    io = require('socket.io')(server),
+    db = require('./database.js');
 
 // 指定静态文件路径
 app.use(express.static(__dirname + '/public'));

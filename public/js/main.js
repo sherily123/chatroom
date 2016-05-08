@@ -13,7 +13,9 @@ $(() => {
 	var $loginDiv = $('.js-login'),
 		$regDiv = $('.js-register'),
 		$trigger = $('.js-trigger'),
-		$loginBtn = $('.js-login-btn');
+		$loginBtn = $('.js-login-btn'),
+		$registerBtn = $('.js-register-btn'),
+		$resetBtn = $('.js-reset-btn');
 
 	var $chatHistory = $('.js-contents'),
 		$sendImage = $('.js-image-input'),
@@ -96,6 +98,13 @@ $(() => {
 			$regEmail.focus();
 		}
 	});
+
+	// 重置注册信息
+	$resetBtn.bind('click', (e) => {
+		var form = $(e.currentTarget).parent();
+		form.find('.js-reg-input').val('');
+		return false;
+	})
 
 	// 打开颜文字窗口
 	$emojiBtn.bind('click', () => {
