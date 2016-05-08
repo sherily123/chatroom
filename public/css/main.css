@@ -112,3 +112,21 @@ label {
 	width: 20%;
 	vertical-align: middle;
 }
+.emoji-wrapper {
+	position: absolute;
+	bottom: 20vh;
+	background: #aaaaaa;
+	width: 60%;
+	height: 150px;
+	overflow: scroll;
+}
+.emoji-wrapper img {
+	width: 25px;
+	height: 25px;
+	margin: 2px;
+	padding: 2px;
+	display: inline-block;
+}
+.emoji-wrapper img:hover {
+	background-color: #66d9ef;
+}

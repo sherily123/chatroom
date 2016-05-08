@@ -8,6 +8,7 @@ $(() => {
 		$connectWrapper = $('.js-connect-wrapper'),
 		$entryWrapper = $('.js-entry-wrapper'),
 		$loginEmail = $('.js-login-email'),
+		$loginPwd = $('.js-login-pwd'),
 		$regEmail = $('.js-reg-email');
 
 	var $loginDiv = $('.js-login'),
@@ -21,7 +22,8 @@ $(() => {
 		$sendImage = $('.js-image-input'),
 		$emojiCon = $('.js-emoji-wrapper'),
 		$emojiBtn = $('.js-emoji'),
-		$sendBtn = $('.js-send-btn');
+		$sendBtn = $('.js-send-btn'),
+		$clearBtn = $('.js-clear-btn');
 
 	// 初始化判断是否支持FileReader
 	if (typeof FileReader === 'undefined') {
@@ -130,18 +132,47 @@ $(() => {
 		return false;
 	});
 
+	// 清除输入的聊天信息
+	$clearBtn.bind('click', () => {
+		$('.js-input-message').val('');
+		return false;
+	});
+
 
 	/* 发送请求到服务器 */
 
+	// 注册，发送到服务器
+	$registerBtn.bind('click', () => {
+		var email = $('.js-reg-email').val(),
+			pwd1 = $('.js-reg-pwd1').val(),
+			pwd2 = $('.js-reg-pwd2').val(),
+			name = $('.js-reg-name').val();
+		if (!email || !pwd1 || !pwd2 || !name) return;
+		if (pwd2 !== pwd1) {
+			pwd2.select();
+			return;
+		}
+		socket.emit('register', {
+			email: email,
+			password: pwd1,
+			nickname: name
+		});
+		return false;
+	});
+
 	// 登录，发送到服务器
 	$loginBtn.bind('click', () => {
-		var email = $loginEmail.val().trim();
+		var email = $loginEmail.val().trim(),
+			pwd = $loginPwd.val();
 		if (!email) {
 			$loginEmail.focus();
 			return;
+		} else if (!pwd) {
+			$loginPwd.focus();
 		} else {
 			socket.emit('login', {
-				email: email
+				email: email,
+				password: pwd
 			});
 		}
 		return false;
@@ -193,12 +224,17 @@ $(() => {
 		$loginEmail.focus();
 	});
 
-	// 登录成功，进入聊天界面
+	// 登录/注册成功，进入聊天界面
 	socket.on('welcome', () => {
 		$connectPanel.addClass('hidden');
 	});
-	// 登录失败，邮箱已经存在
+	// 注册失败，邮箱已经存在
 	socket.on('userExist', () => {
+		$regEmail.focus();
+		$regEmail.select();
+	});
+	// 登录失败，用户不存在或输入的邮箱/密码有误
+	socket.on('loginFail', () => {
 		$loginEmail.focus();
 		$loginEmail.select();
 	});

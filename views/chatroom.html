@@ -27,7 +27,7 @@
 						<label class="imageLabel" for="sendImage">
 							<input class="js-image-input" type="file" value="image" />
 						</label>
-						<input class="clear-btn" type="button" value="clear" title="clear screen">
+						<input class="js-clear-btn" type="button" value="clear" title="clear screen">
 					</div>
 					<div class="inputing">
 						<textarea class="js-input-message input-message" rows="4" cols="40" placeholder="输入信息"></textarea>
@@ -47,12 +47,12 @@
 			<div class="hidden js-entry-wrapper entry-wrapper">
 				<ul class="js-trigger-tab trigger-tab">
 					<li class="chosen"><a class="js-trigger trigger" href="javascript:void(0)" data-action="login">登录</a></li>
-					<!--<li><a class="js-trigger trigger" href="javascript:void(0)" data-action="register">注册</a></li>-->
+					<li><a class="js-trigger trigger" href="javascript:void(0)" data-action="register">注册</a></li>
 				</ul>
 				<div class="js-login login">
 					<form class="login-form" action="">
-						<label>昵称 <input type="text" name="email" class="js-login-email"></label>
-						<label class="hidden">密码 <input type="password" name="password" class="login-pwd"></label>
+						<label>邮箱 <input type="text" name="email" class="js-login-email"></label>
+						<label>密码 <input type="password" name="password" class="js-login-pwd"></label>
 						<input type="submit" name="submit" value="登录" class="js-login-btn">
 					</form>
 				</div>
